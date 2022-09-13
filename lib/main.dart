@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.white,
         accentColor: Colors.red,
+        fontFamily: 'Poppins',
       ),
       home: CarsOverviewScreen(),
     );
