@@ -7,25 +7,16 @@ class CarsOverviewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
-        centerTitle: true,
-        elevation: 0,
-        title: Text('RentCar', style: TextStyle(
-          fontFamily: 'Poppins',
-          height: 0,
-          color: Colors.black,
-          fontWeight: FontWeight.bold,
-          fontSize: 18,
-        )),
-      ),
+      appBar: null,
       body: ListView(
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(
-              'Sewa Mobil',
-              style: MainHeading
+            child: Center(
+              child: Text(
+                'Sewa Mobil',
+                style: MainHeading
+              ),
             ),
           ),
           Padding(

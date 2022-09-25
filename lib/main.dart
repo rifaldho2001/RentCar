@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rentcar/screens/splash.dart';
 import './screens/cars_overview.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.red,
         fontFamily: 'Poppins',
       ),
-      home: CarsOverviewScreen(),
+      home: Splash(),
     );
   }
 }
