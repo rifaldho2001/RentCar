@@ -250,6 +250,56 @@ class _SignUpScreen extends State<SignUp> {
     );
   }
 
+  Widget inputNumberPhone() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Number Phone",
+          style: TextStyle(
+              fontSize: 16,
+              color: Color.fromARGB(255, 246, 0, 0),
+              fontWeight: FontWeight.bold
+          ),
+        ),
+        SizedBox(height: 10),
+        Container(
+          alignment: Alignment.centerLeft,
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 6,
+                    offset: Offset(0,2)
+                )
+              ]
+          ),
+          height: 60,
+          child: TextField(
+            keyboardType: TextInputType.emailAddress,
+            style: TextStyle(
+                color: Colors.black87
+            ),
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.only(top: 14),
+                prefixIcon: Icon(
+                    Icons.phone,
+                    color: Color.fromARGB(255, 252, 0, 0)
+                ),
+                hintText: 'Number Phone',
+                hintStyle: TextStyle(
+                    color: Colors.black38
+                )
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
   Widget signUpButton() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 25),
@@ -352,6 +402,9 @@ class _SignUpScreen extends State<SignUp> {
                       inputPassword(),
                       SizedBox(height: 20),
                       inputConfirmPassword(),
+                      SizedBox(height: 20),
+                      inputNumberPhone(),
+                      SizedBox(height: 20),
                       signUpButton(),
                       haveAccount()
                     ],
