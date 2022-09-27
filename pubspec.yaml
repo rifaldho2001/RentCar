@@ -32,6 +32,9 @@ dependencies:
   flutter:
     sdk: flutter
   animated_splash_screen:
+  # google_fonts: ^1.0.0
+  # flutter_svg: ^0.22.0
+  # simple_shadow: ^0.2.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -71,6 +74,7 @@ flutter:
     - assets/mobil/
     - assets/font/
     - assets/splash/512.png
+    - assets/icons/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
