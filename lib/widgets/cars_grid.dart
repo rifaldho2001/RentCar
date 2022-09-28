@@ -15,7 +15,12 @@ class CarsGrid extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Container(
           decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor, boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 5, spreadRadius: 1)], borderRadius: BorderRadius.all(Radius.circular(20))
+            color: Theme.of(context).primaryColor,
+              boxShadow: [
+                BoxShadow(color: Colors.black12,
+                    blurRadius: 5,
+                    spreadRadius: 1)],
+              borderRadius: BorderRadius.all(Radius.circular(20))
           ),
           child: Column(
             children: [

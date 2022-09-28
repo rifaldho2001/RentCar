@@ -49,8 +49,9 @@ class _LoginScreen extends State<Login> {
               borderRadius: BorderRadius.circular(10),
               boxShadow: [
                 BoxShadow(
-                    color: Colors.black26,
-                    blurRadius: 6,
+                    color: Colors.black12,
+                    blurRadius: 5,
+                    spreadRadius: 1,
                     offset: Offset(0,2)
                 )
               ]
@@ -99,8 +100,9 @@ class _LoginScreen extends State<Login> {
               borderRadius: BorderRadius.circular(10),
               boxShadow: [
                 BoxShadow(
-                    color: Colors.black26,
-                    blurRadius: 6,
+                    color: Colors.black12,
+                    blurRadius: 5,
+                    spreadRadius: 1,
                     offset: Offset(0,2)
                 )
               ]

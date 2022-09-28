@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rentcar/screens/splash.dart';
-import './screens/cars_overview.dart';
 
 void main() {
   runApp(const MyApp());

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 const MainHeading = TextStyle(
   fontFamily: 'Poppins',
-  color: Colors.black,
   fontWeight: FontWeight.bold,
   fontSize: 24,
 );
