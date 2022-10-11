@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rentcar/Utilities/Utilities.dart';
 import '../widgets/cars_grid.dart';
+import 'histori.dart';
 
 class CarsOverviewScreen extends StatefulWidget {
   @override
@@ -8,8 +9,7 @@ class CarsOverviewScreen extends StatefulWidget {
 }
 
 class _CarsOverviewScreenState extends State<CarsOverviewScreen> {
-
-  int _currentIndex = 0;
+  int index = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class _CarsOverviewScreenState extends State<CarsOverviewScreen> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
+        currentIndex: index,
         backgroundColor: Colors.white,
         selectedFontSize: 12,
         unselectedFontSize: 11,
@@ -57,12 +57,13 @@ class _CarsOverviewScreenState extends State<CarsOverviewScreen> {
           ),
         ],
         selectedItemColor: Colors.red,
-        onTap: (index) {
+        onTap: (int newindex) {
           setState(() {
-            _currentIndex = index;
+            index = newindex;
           });
         },
       ),
     );
   }
 }
+
