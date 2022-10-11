@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rentcar/Utilities/Utilities.dart';
+import 'package:rentcar/screens/profil.dart';
 import '../widgets/cars_grid.dart';
 import 'histori.dart';
 
@@ -21,21 +22,12 @@ class _CarsOverviewScreenState extends State<CarsOverviewScreen> {
         automaticallyImplyLeading: false,
         title: Center(child: Image.asset('assets/256.png', height: 40)),
       ),
-      body: ListView(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Center(
-              child: Text(
-                'Sewa Mobil',
-                style: MainHeading
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: CarsGrid(),
-          )
+      body: IndexedStack(
+        index: index,
+        children: const [
+          CarsGrid(),
+          Histori(),
+          Profil()
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -54,6 +46,11 @@ class _CarsOverviewScreenState extends State<CarsOverviewScreen> {
               icon: Icon(Icons.note),
               //backgroundColor: Colors.white,
               label: 'Pemesanan'
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.people),
+              //backgroundColor: Colors.white,
+              label: 'Profil'
           ),
         ],
         selectedItemColor: Colors.red,
