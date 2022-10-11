@@ -263,14 +263,20 @@ class _SignUpScreen extends State<SignUp> {
               ]),
           height: 60,
           child: GestureDetector(
-            child: Center(
-              child: Text("Upload KTP")), 
-              onTap: (() {
-                AlertDialog(
-                  content: Text("Hallo"),
-                  );
-                }
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.red,
+                border: Border.all(color: Colors.deepOrange, width: 1.0),
               ),
+            ),
+            // child: Center(
+            //   child: Text("Upload KTP")), 
+            //   onTap: (() {
+            //     AlertDialog(
+            //       content: Text("hai"),
+            //       );
+            //     }
+            //   ),
             ),
           // child: TextField(
           //   keyboardType: TextInputType.emailAddress,
