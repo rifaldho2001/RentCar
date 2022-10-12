@@ -7,7 +7,14 @@ class CarItem {
   final String bensin;
   final String brand;
 
-  CarItem({required this.title, required this.harga, required this.path, required this.warna, required this.gearbox, required this.bensin, required this.brand});
+  CarItem({
+    required this.title,
+    required this.harga,
+    required this.path,
+    required this.warna,
+    required this.gearbox,
+    required this.bensin,
+    required this.brand});
 }
 
 CarsList allCars = CarsList(mobil: [
