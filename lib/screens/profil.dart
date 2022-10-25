@@ -18,17 +18,23 @@ class Profil extends StatelessWidget {
             padding: const EdgeInsets.only(top: 20)
           ),
           Text('Rifaldho Muhammad Rizki', style: TextStyle(
-            fontSize: 22.0,
+            fontSize: 28.0,
             fontWeight: FontWeight.bold,
           ),),
+          Padding(
+              padding: const EdgeInsets.only(top: 5)
+          ),
           Text('rifalmuhammadri@gmail.com', style: TextStyle(
-            fontSize: 14.0,
-          ),),
-          Text('087826789043', style: TextStyle(
-            fontSize: 12.0,
+            fontSize: 16.0,
           ),),
           Padding(
-              padding: const EdgeInsets.only(left: 30,right: 30, top: 30),
+              padding: const EdgeInsets.only(top: 10)
+          ),
+          Text('087826789043', style: TextStyle(
+            fontSize: 14.0,
+          ),),
+          Padding(
+              padding: const EdgeInsets.only(left: 40,right: 40, top: 30),
               child: TextButton(
                 style: ButtonStyle(
                   padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(20)),
@@ -66,7 +72,7 @@ class Profil extends StatelessWidget {
 
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 30,right: 30, top: 20),
+            padding: const EdgeInsets.only(left: 40,right: 40, top: 20),
             child: TextButton(
               style: ButtonStyle(
                 padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(20)),
@@ -104,7 +110,7 @@ class Profil extends StatelessWidget {
 
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 30,right: 30, top: 20),
+            padding: const EdgeInsets.only(left: 40,right: 40, top: 20),
             child: TextButton(
               style: ButtonStyle(
                 padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(20)),
@@ -142,7 +148,7 @@ class Profil extends StatelessWidget {
 
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 30,right: 30, top: 20),
+            padding: const EdgeInsets.only(left: 40,right: 40, top: 20),
             child: TextButton(
               style: ButtonStyle(
                 padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(20)),
