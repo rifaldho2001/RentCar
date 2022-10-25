@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'signup.dart';
 
 class Login extends StatefulWidget {
+  static String routeName = "/login";
   @override
   _LoginScreen createState() => _LoginScreen();
 }

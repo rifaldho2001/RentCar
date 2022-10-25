@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rentcar/screens/splash.dart';
+import 'screens/routs.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,9 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.red,
         fontFamily: 'Poppins',
       ),
-      home: Splash(),
+      // home: Splash(),
+      initialRoute: Splash.routeName,
+      routes: routes,
     );
   }
 }

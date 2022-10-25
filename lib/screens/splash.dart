@@ -5,6 +5,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import '../mobil/mobil.dart';
 
 class Splash extends StatelessWidget {
+  static String routeName = "/splash";
   const Splash({Key? key}) : super(key: key);
 
   @override
