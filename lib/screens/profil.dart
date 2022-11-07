@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/profile_pic.dart';
+// import '../widgets/profile_pic.dart';
 
 class Profil extends StatelessWidget {
   const Profil({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class Profil extends StatelessWidget {
           Padding(
               padding: const EdgeInsets.only(top: 20)
           ),
-          ProfilePic(),
+          // ProfilePic(),
           Padding(
             padding: const EdgeInsets.only(top: 20)
           ),

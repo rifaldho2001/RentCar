@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import '../screens/cars_overview.dart';
 import 'package:flutter/services.dart';
 import 'signup.dart';
+import 'package:http/http.dart' as http;
 
 class Login extends StatefulWidget {
   static String routeName = "/login";
@@ -10,9 +13,39 @@ class Login extends StatefulWidget {
 }
 
 class _LoginScreen extends State<Login> {
+
+  var pesan = "";
+  final emailController = TextEditingController();
+  final passController = TextEditingController();
+  @override
+  void dispose() {
+    emailController.dispose();
+    passController.dispose();
+    super.dispose();
+  }
+
   bool _isRemember = false;
 
   bool _isHide = true;
+
+  void fetchApi() async  {
+    // final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/albums/1'));
+    // print(jsonDecode(response.body));
+    setState(() {pesan="";});
+     final response = await http.post(
+      Uri.parse('http://192.168.207.84:8000/api/login'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'email': emailController.text,
+        'password': passController.text,
+      }),
+    );
+
+    jsonDecode(response.body) ? goHome() : setState(() {pesan="Salah";});
+    print(jsonDecode(response.body));
+  }
 
   void goHome() {
     Navigator.of(context).push(
@@ -59,6 +92,7 @@ class _LoginScreen extends State<Login> {
           ),
           height: 60,
           child: TextField(
+            controller: emailController,
             keyboardType: TextInputType.emailAddress,
             style: TextStyle(
                 color: Colors.black87
@@ -110,6 +144,7 @@ class _LoginScreen extends State<Login> {
           ),
           height: 60,
           child: TextField(
+            controller: passController,
             obscureText: _isHide,
             style: TextStyle(
                 color: Colors.black87
@@ -202,7 +237,8 @@ class _LoginScreen extends State<Login> {
           backgroundColor: Color.fromARGB(255, 231, 44, 44)
         ),
         onPressed: () {
-          goHome();
+          // goHome();
+          fetchApi();
         },
         child: Text(
           "LOGIN",
@@ -240,6 +276,12 @@ class _LoginScreen extends State<Login> {
           ]
         ),
       ),
+    );
+  }
+  
+  Widget pesanWidget() {
+    return Container(
+      child: Text(pesan),
     );
   }
 
@@ -287,7 +329,8 @@ class _LoginScreen extends State<Login> {
                       forgetPassword(),
                       rememberMe(),
                       loginButton(),
-                      dontHaveAccount()
+                      dontHaveAccount(),
+                      pesanWidget()
                     ],
                   ),
                 ),
