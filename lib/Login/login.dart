@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../screens/cars_overview.dart';
 import 'package:flutter/services.dart';
 import 'signup.dart';
@@ -25,15 +26,19 @@ class _LoginScreen extends State<Login> {
   }
 
   bool _isRemember = false;
-
   bool _isHide = true;
+
+  setId (int id) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setInt("id", id);
+  }
 
   void fetchApi() async  {
     // final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/albums/1'));
     // print(jsonDecode(response.body));
     setState(() {pesan="";});
-     final response = await http.post(
-      Uri.parse('http://192.168.207.84:8000/api/login'),
+    final response = await http.post(
+      Uri.parse('http://192.168.212.84:8000/api/login'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -42,10 +47,21 @@ class _LoginScreen extends State<Login> {
         'password': passController.text,
       }),
     );
+    final responseData = jsonDecode(response.body)["data"];
+    final responseStatus = jsonDecode(response.body)["status"];
 
-    jsonDecode(response.body) ? goHome() : setState(() {pesan="Salah";});
+    if(responseStatus) {
+      print("WAWDAD");
+      setId(responseData['id']);
+      goHome();
+    } else {
+      setState(() {pesan="Salah";});
+    }
+
     print(jsonDecode(response.body));
   }
+
+
 
   void goHome() {
     Navigator.of(context).push(

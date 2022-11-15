@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../screens/cars_overview.dart';
 import 'login.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -10,6 +13,17 @@ class SignUp extends StatefulWidget {
 
 class _SignUpScreen extends State<SignUp> {
   bool _isHide = true;
+  var pesan = "";
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+  final numberphoneController = TextEditingController();
+
+  setId (int id) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setInt("id", id);
+  }
 
   void goHome() {
     Navigator.of(context).push(
@@ -25,6 +39,30 @@ class _SignUpScreen extends State<SignUp> {
         builder: (context) => Login(),
       ),
     );
+  }
+
+  void register() async {
+
+    final response = await http.post(
+      Uri.parse('http://192.168.212.84:8000/api/register'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'name': nameController.text,
+        'email': emailController.text,
+        'password': passwordController.text,
+        'confirmPassword': confirmPasswordController.text,
+        'numberphone': numberphoneController.text,
+      }),
+    );
+    final responseData = jsonDecode(response.body)["data"];
+    final responseStatus = jsonDecode(response.body)["status"];
+    if(responseStatus) {
+      setId(responseData['id']);
+    }
+    jsonDecode(response.body)["status"] ? goHome() : setState(() {pesan="Salah";});
+    print(responseData["name"]);
   }
 
   Widget inputFullname() {
@@ -50,6 +88,7 @@ class _SignUpScreen extends State<SignUp> {
               ]),
           height: 60,
           child: TextField(
+            controller: nameController,
             keyboardType: TextInputType.name,
             style: TextStyle(color: Colors.black87),
             decoration: InputDecoration(
@@ -88,6 +127,7 @@ class _SignUpScreen extends State<SignUp> {
               ]),
           height: 60,
           child: TextField(
+            controller: emailController,
             keyboardType: TextInputType.emailAddress,
             style: TextStyle(color: Colors.black87),
             decoration: InputDecoration(
@@ -126,6 +166,7 @@ class _SignUpScreen extends State<SignUp> {
               ]),
           height: 60,
           child: TextField(
+            controller: passwordController,
             obscureText: _isHide,
             style: TextStyle(color: Colors.black87),
             decoration: InputDecoration(
@@ -175,6 +216,7 @@ class _SignUpScreen extends State<SignUp> {
               ]),
           height: 60,
           child: TextField(
+            controller: confirmPasswordController,
             obscureText: _isHide,
             style: TextStyle(color: Colors.black87),
             decoration: InputDecoration(
@@ -224,6 +266,7 @@ class _SignUpScreen extends State<SignUp> {
               ]),
           height: 60,
           child: TextField(
+            controller: numberphoneController,
             keyboardType: TextInputType.emailAddress,
             style: TextStyle(color: Colors.black87),
             decoration: InputDecoration(
@@ -239,39 +282,39 @@ class _SignUpScreen extends State<SignUp> {
     );
   }
 
-  Widget inputKTP() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Upload KTP",
-          style: TextStyle(
-            fontSize: 16,
-            color: Color.fromARGB(255, 246, 0, 0),
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        SizedBox(height: 10),
-        Container(
-          alignment: Alignment.centerLeft,
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.black26, blurRadius: 6, offset: Offset(0, 2))
-              ]),
-          height: 60,
-          child: GestureDetector(
-            child: Center(
-              child: Text("Upload KTP")),
-              onTap: (() {
-                AlertDialog(
-                  content: Text("hai"),
-                  );
-                }
-              ),
-            ),
+  // Widget inputKTP() {
+  //   return Column(
+  //     crossAxisAlignment: CrossAxisAlignment.start,
+  //     children: [
+  //       Text(
+  //         "Upload KTP",
+  //         style: TextStyle(
+  //           fontSize: 16,
+  //           color: Color.fromARGB(255, 246, 0, 0),
+  //           fontWeight: FontWeight.bold,
+  //         ),
+  //       ),
+  //       SizedBox(height: 10),
+  //       Container(
+  //         alignment: Alignment.centerLeft,
+  //         decoration: BoxDecoration(
+  //             color: Colors.white,
+  //             borderRadius: BorderRadius.circular(10),
+  //             boxShadow: [
+  //               BoxShadow(
+  //                   color: Colors.black26, blurRadius: 6, offset: Offset(0, 2))
+  //             ]),
+  //         height: 60,
+  //         child: GestureDetector(
+  //           child: Center(
+  //             child: Text("Upload KTP")),
+  //             onTap: (() {
+  //               AlertDialog(
+  //                 content: Text("hai"),
+  //                 );
+  //               }
+  //             ),
+  //           ),
           // child: TextField(
           //   keyboardType: TextInputType.emailAddress,
           //   style: TextStyle(
@@ -290,10 +333,10 @@ class _SignUpScreen extends State<SignUp> {
           //       )
           //   ),
           // ),
-        )
-      ],
-    );
-  }
+  //       )
+  //     ],
+  //   );
+  // }
 
   Widget signUpButton() {
     return Container(
@@ -307,7 +350,8 @@ class _SignUpScreen extends State<SignUp> {
                   borderRadius: BorderRadius.circular(16)),
               backgroundColor: Color.fromARGB(255, 255, 0, 0)),
           onPressed: () {
-            goHome();
+            register();
+            // goHome();
           },
           child: Text(
             "SIGN UP",
@@ -334,6 +378,12 @@ class _SignUpScreen extends State<SignUp> {
                   fontWeight: FontWeight.bold))
         ]),
       ),
+    );
+  }
+
+  Widget pesanWidget() {
+    return Container(
+      child: Text(pesan),
     );
   }
 
@@ -380,10 +430,11 @@ class _SignUpScreen extends State<SignUp> {
                       SizedBox(height: 20),
                       inputNumberPhone(),
                       SizedBox(height: 20),
-                      inputKTP(),
-                      SizedBox(height: 20),
+                      // inputKTP(),
+                      // SizedBox(height: 20),
                       signUpButton(),
-                      haveAccount()
+                      haveAccount(),
+                      pesanWidget()
                     ],
                   ),
                 ),

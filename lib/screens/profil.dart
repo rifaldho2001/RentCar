@@ -1,8 +1,43 @@
-import 'package:flutter/material.dart';
-// import '../widgets/profile_pic.dart';
+import 'dart:convert';
 
-class Profil extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:rentcar/Login/login.dart';
+import 'package:rentcar/screens/splash.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+// import '../widgets/profile_pic.dart';
+import 'package:http/http.dart' as http;
+
+
+class Profil extends StatefulWidget {
   const Profil({Key? key}) : super(key: key);
+
+  @override
+  State<Profil> createState() => _ProfilState();
+}
+
+class _ProfilState extends State<Profil> {
+
+  var name = "";
+  var email = ""; 
+  var numberphone = "";
+
+  _ProfilState(){
+    getId();
+  }
+
+  getId () async {
+    final prefs = await SharedPreferences.getInstance();
+    var id = prefs.getInt("id");
+
+    final response = await http.get(Uri.parse('http://192.168.212.84:8000/api/detail-user?id=' + id.toString()));
+    final responseData = jsonDecode(response.body)["data"];
+    print(responseData);
+    setState(() {
+      name=responseData["name"];
+      email=responseData["email"];
+      numberphone=responseData["numberphone"];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,20 +52,20 @@ class Profil extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 20)
           ),
-          Text('Rifaldho Muhammad Rizki', style: TextStyle(
+          Text(name, style: TextStyle(
             fontSize: 28.0,
             fontWeight: FontWeight.bold,
           ),),
           Padding(
               padding: const EdgeInsets.only(top: 5)
           ),
-          Text('rifalmuhammadri@gmail.com', style: TextStyle(
+          Text(email, style: TextStyle(
             fontSize: 16.0,
           ),),
           Padding(
               padding: const EdgeInsets.only(top: 10)
           ),
-          Text('087826789043', style: TextStyle(
+          Text(numberphone, style: TextStyle(
             fontSize: 14.0,
           ),),
           Padding(
@@ -159,7 +194,11 @@ class Profil extends StatelessWidget {
                     )
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, 
+                MaterialPageRoute(builder: (context) => Splash())
+                );
+              },
               child: Row(
                 children: [
                   Icon(
