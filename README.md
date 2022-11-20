@@ -1,6 +1,6 @@
-# rentcar
+# rentcarapp
 
-Application to learn PAPB
+A new Flutter project.
 
 ## Getting Started
 
