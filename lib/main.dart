@@ -8,8 +8,7 @@ import 'app/routes/app_pages.dart';
 
 import 'package:responsive_framework/responsive_framework.dart';
 
-void main() async {
-  await GetStorage.init();
+void main() {
   runApp(
     GetMaterialApp(
       builder: (context, child) => ResponsiveWrapper.builder(
