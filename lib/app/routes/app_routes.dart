@@ -9,16 +9,16 @@ abstract class Routes {
   static const SIGNUP = _Paths.SIGNUP;
   static const BOOKING = _Paths.BOOKING;
   static const PROFILE = _Paths.PROFILE;
-  static const BOTNAVBAR = _Paths.BOTNAVBAR;
+  static const BOTNAVBAR = _Paths.HOME;
 }
 
 abstract class _Paths {
   _Paths._();
   static const SPLASH = '/splash';
   static const LOGIN = '/login';
-  static const HOME = '/home';
+  static const CATALOG = '/catalog';
   static const SIGNUP = '/signup';
-  static const BOTNAVBAR = '/botnavbar';
+  static const HOME = '/home';
   static const BOOKING = '/booking';
   static const PROFILE = '/profile';
 }

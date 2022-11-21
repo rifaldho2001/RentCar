@@ -27,7 +27,7 @@ class LoginController extends GetxController {
 
   login() async {
     if (emailC.text.isNotEmpty && passC.text.isNotEmpty) {
-      Get.offAllNamed(Routes.BOTNAVBAR);
+      Get.offAllNamed(Routes.HOME);
     }
     else {
       Get.snackbar("Login Error", "Please enter email and password");
