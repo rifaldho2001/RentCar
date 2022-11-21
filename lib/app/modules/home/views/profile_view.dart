@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 
 import '../controllers/home_controller.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
+class ProfileView extends StatelessWidget {
+  const ProfileView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class HomeView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Text(
-                "Home Page",
+                "Profile Page",
                 style: TextStyle(fontSize: 24),
               )
             ],

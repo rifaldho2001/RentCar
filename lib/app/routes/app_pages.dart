@@ -1,4 +1,7 @@
 import 'package:get/get.dart';
+import 'package:rentcarapp/app/modules/home/views/booking_view.dart';
+import 'package:rentcarapp/app/modules/home/views/botnavbar_view.dart';
+import 'package:rentcarapp/app/modules/home/views/profile_view.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
@@ -38,19 +41,19 @@ class AppPages {
       binding: SignupBinding(),
     ),
     GetPage(
-      name: _Paths.CATALOG,
-      page: () => const SignupView(),
-      binding: SignupBinding(),
+      name: _Paths.BOTNAVBAR,
+      page: () => BotNavBarView(),
+      binding: HomeBinding(),
     ),
     GetPage(
       name: _Paths.BOOKING,
-      page: () => const SignupView(),
-      binding: SignupBinding(),
+      page: () => const BookingView(),
+      binding: HomeBinding(),
     ),
     GetPage(
       name: _Paths.PROFILE,
-      page: () => const SignupView(),
-      binding: SignupBinding(),
+      page: () => const ProfileView(),
+      binding: HomeBinding(),
     ),
   ];
 }
