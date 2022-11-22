@@ -1,5 +1,3 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -9,6 +7,7 @@ import 'package:rentcarapp/app/modules/home/views/profile_view.dart';
 
 import '../controllers/home_controller.dart';
 
+// ignore: must_be_immutable
 class HomeView extends StatelessWidget {
 
   HomeController BotNavBarController = Get.put(HomeController());
