@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Catalog {
-  final Image carImage;
+  final String carImage;
   final String id;
   final String carName;
-  final int carPrice;
+  final String carPrice;
   final bool carType;
 
   const Catalog({
