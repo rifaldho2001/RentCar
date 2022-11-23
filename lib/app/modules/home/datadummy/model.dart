@@ -5,7 +5,7 @@ class Catalog {
   final String id;
   final String carName;
   final String carPrice;
-  final bool carType;
+  final String carType;
 
   const Catalog({
     required this.carImage,

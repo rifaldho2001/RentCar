@@ -34,15 +34,42 @@ class _CatalogViewState extends State<CatalogView> {
     return Scaffold(
       body: ListView.separated(itemBuilder: (context, index){
         return Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(28)
+            ),
             elevation: 5,
             margin: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
             child: Column(
               children: [
-                Image(image: NetworkImage(listCatalog[index].carImage.toString()),
-                    fit: BoxFit.fill),
-                Text(listCatalog[index].carName.toString()),
-                Text(listCatalog[index].carPrice.toString()),
-                Text(listCatalog[index].carType.toString()),
+                Container(
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(28),
+                      child: Image(image: NetworkImage(listCatalog[index].carImage.toString()),
+                          fit: BoxFit.fill),
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(listCatalog[index].carName.toString(),
+                style: TextStyle(fontSize: 24),),
+                Text(listCatalog[index].carPrice.toString(),
+                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
+                Text("per hari",
+                style: TextStyle(fontSize: 16)),
+                Container(
+                  width: 150,
+                  child: ElevatedButton(
+                      onPressed: (){},
+                      child: Text("Detail"),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFFEF233C),
+                        padding: EdgeInsets.symmetric(vertical: 5),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(28),
+                        ),
+                      ),
+                  ),
+                ),
+                SizedBox(height: 20,)
               ],
             )
         );
