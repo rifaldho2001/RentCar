@@ -5,37 +5,40 @@ description: A new Flutter project.
 environment: 
   sdk: '>=2.18.0 <3.0.0'
 
-dependencies:
-  flutter:
-    sdk: flutter
+dependencies: 
   cupertino_icons: ^1.0.5
   get: 4.6.5
   responsive_framework: ^0.2.0
   http: ^0.13.5
+  firebase_core: 2.3.0
+  firebase_auth: 4.1.5
+  firebase_storage: 11.0.6
+  flutter: 
+    sdk: flutter
 
-dev_dependencies:
+dev_dependencies: 
   flutter_lints: ^2.0.1
+  flutter_launcher_icons: ^0.11.0
   flutter_test: 
     sdk: flutter
-  flutter_launcher_icons: ^0.11.0
 
-flutter_icons:
-  image_path: "assets/img/1024.png"
+flutter_icons: 
+  image_path: assets/img/1024.png
   android: true
   ios: true
 
 flutter: 
-  uses-material-design: true
-  assets:
+  assets: 
     - assets/font/
     - assets/img/
     - assets/catalog.json
-  fonts:
+  fonts: 
     - family: Poppins
-      fonts:
+      fonts: 
         - asset: assets/font/Poppins-Regular.ttf
         - asset: assets/font/Poppins-Bold.ttf
           weight: 700
         - asset: assets/font/Poppins-Medium.ttf
           weight: 300
+  uses-material-design: true
 
