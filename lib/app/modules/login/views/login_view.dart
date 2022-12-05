@@ -26,8 +26,9 @@ class LoginView extends GetView<LoginController> {
                 fontWeight:FontWeight.bold
               ),),
             ),
-            SizedBox(height: 80),
+            SizedBox(height: 90),
             TextField(
+              autocorrect: false,
               controller: controller.emailC,
               keyboardType: TextInputType.emailAddress,
               cursorColor: Colors.black26,
@@ -67,8 +68,9 @@ class LoginView extends GetView<LoginController> {
                   )
               ),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 20),
             TextField(
+              autocorrect: false,
               controller: controller.passC,
               keyboardType: TextInputType.visiblePassword,
               obscureText: true,
@@ -130,7 +132,7 @@ class LoginView extends GetView<LoginController> {
                 onPressed: () {
                   controller.login();
                 },
-                child: Text("Log in"),
+                child: Text("Log in", style: TextStyle(fontSize: 16)),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFFEF233C),
                   padding: EdgeInsets.symmetric(vertical: 15),
@@ -140,58 +142,6 @@ class LoginView extends GetView<LoginController> {
                 ),
               ),
             ),
-            // SizedBox(height: 25),
-            // Row(
-            //   children: [
-            //     Expanded(
-            //         child: Container(
-            //           margin: EdgeInsets.only(right: 15),
-            //           height: 1,
-            //           color: Colors.black26,
-            //         )
-            //     ),
-            //     Text(
-            //         "or",
-            //       style: TextStyle(
-            //         color: Colors.black26,
-            //         fontSize: 12
-            //       ),
-            //     ),
-            //     Expanded(
-            //         child: Container(
-            //           margin: EdgeInsets.only(left: 15),
-            //           height: 1,
-            //           color: Colors.black26,
-            //         )
-            //     ),
-            //   ],
-            // ),
-            // SizedBox(height: 25),
-            // Container(
-            //   width: Get.width,
-            //   height: 60,
-            //   child: ElevatedButton(
-            //     onPressed: () {},
-            //     child: Row(
-            //       mainAxisAlignment: MainAxisAlignment.center,
-            //       children: [
-            //         Image.asset("assets/img/google.png"),
-            //         SizedBox(width: 5),
-            //         Text("Log in with Google",
-            //         style: TextStyle(
-            //           color: Color(0xFF303030),
-            //           fontSize: 14
-            //         )),
-            //       ],
-            //     ),
-            //     style: ElevatedButton.styleFrom(
-            //         backgroundColor: Color(0xFFF6F7FA),
-            //         padding: EdgeInsets.symmetric(vertical: 15),
-            //         shape: RoundedRectangleBorder(
-            //           borderRadius: BorderRadius.circular(28))
-            //     ),
-            //   ),
-            // ),
             SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

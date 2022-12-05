@@ -11,7 +11,7 @@ class SignupView extends GetView<SignupController> {
     return Scaffold(
         body: SafeArea(
           child: ListView(
-            padding: EdgeInsets.only(right: 40, left: 40, top: 70),
+            padding: EdgeInsets.only(right: 40, left: 40, top: 40),
             children: [
               Image.asset(
                 "assets/img/512.png",
@@ -26,8 +26,10 @@ class SignupView extends GetView<SignupController> {
                       fontWeight:FontWeight.bold
                   ),),
               ),
-              SizedBox(height: 80),
+              SizedBox(height: 40),
               TextField(
+                controller: controller.nameC,
+                autocorrect: false,
                 cursorColor: Colors.black26,
                 decoration: InputDecoration(
                     label: Text("Full Name",
@@ -52,8 +54,10 @@ class SignupView extends GetView<SignupController> {
                     ),
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 20),
               TextField(
+                controller: controller.emailC,
+                autocorrect: false,
                 keyboardType: TextInputType.emailAddress,
                 cursorColor: Colors.black26,
                 decoration: InputDecoration(
@@ -79,8 +83,10 @@ class SignupView extends GetView<SignupController> {
                   ),
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 20),
               TextField(
+                controller: controller.passC,
+                autocorrect: false,
                 keyboardType: TextInputType.visiblePassword,
                 obscureText: true,
                 cursorColor: Colors.black26,
@@ -117,8 +123,10 @@ class SignupView extends GetView<SignupController> {
                     )
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 20),
               TextField(
+                controller: controller.repassC,
+                autocorrect: false,
                 keyboardType: TextInputType.visiblePassword,
                 obscureText: true,
                 cursorColor: Colors.black26,
@@ -155,8 +163,10 @@ class SignupView extends GetView<SignupController> {
                     )
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 20),
               TextField(
+                controller: controller.phoneC,
+                autocorrect: false,
                 keyboardType: TextInputType.phone,
                 cursorColor: Colors.black26,
                 decoration: InputDecoration(
@@ -182,7 +192,60 @@ class SignupView extends GetView<SignupController> {
                   ),
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 20),
+              Container(
+                width: Get.width,
+                height: 60,
+                child: ElevatedButton(
+                  onPressed: () {
+                    controller.pickKTP();
+                  },
+                  child: Text("Pilih KTP",
+                      style: TextStyle(
+                          color: Color(0xFFEF233C),
+                          fontSize: 14
+                      )),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      padding: EdgeInsets.symmetric(vertical: 15),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(28)),
+                      side: BorderSide(color: Color(0xFFEF233C))
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              Container(
+                alignment: Alignment.center,
+                child: GetBuilder<SignupController>(
+                  builder: (c) {
+                    if(c.image != null){
+                      return Text("KTP telah dipilih");
+                    }else{
+                      return Text("KTP belum dipilih");
+                    };
+                  }
+                )
+              ),
+              SizedBox(height: 20),
+              Container(
+                width: Get.width,
+                height: 60,
+                child: ElevatedButton(
+                  onPressed: () {
+                    controller.register();
+                  },
+                  child: Text("Register", style: TextStyle(fontSize: 16)),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFFEF233C),
+                    padding: EdgeInsets.symmetric(vertical: 15),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(28),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

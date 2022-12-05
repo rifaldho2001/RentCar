@@ -6,21 +6,6 @@ class LoginController extends GetxController {
   TextEditingController emailC = TextEditingController();
   TextEditingController passC = TextEditingController();
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
   void signup() {
     Get.offAllNamed(Routes.SIGNUP);
   }
@@ -28,8 +13,7 @@ class LoginController extends GetxController {
   login() async {
     if (emailC.text.isNotEmpty && passC.text.isNotEmpty) {
       Get.offAllNamed(Routes.HOME);
-    }
-    else {
+    } else {
       Get.snackbar("Login Error", "Please enter email and password");
     }
   }
