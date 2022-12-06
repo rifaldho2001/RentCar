@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../../routes/app_pages.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
@@ -115,7 +116,7 @@ class LoginView extends GetView<LoginController> {
             Container(
               alignment: Alignment.centerRight,
               child: TextButton(
-                  onPressed: () {},
+                  onPressed: () => Get.toNamed(Routes.FORGET_PASSWORD),
                   child: Text("Forgot Password?",
                       style: TextStyle(
                         color: Color(0xFFEF233C),
