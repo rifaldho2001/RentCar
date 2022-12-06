@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:rentcarapp/app/routes/app_pages.dart';
 import 'package:firebase_auth/firebase_auth.dart';

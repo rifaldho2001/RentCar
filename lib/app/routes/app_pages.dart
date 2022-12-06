@@ -1,10 +1,12 @@
 import 'package:get/get.dart';
-import 'package:rentcarapp/app/modules/home/views/booking_view.dart';
-import 'package:rentcarapp/app/modules/home/views/home_view.dart';
-import 'package:rentcarapp/app/modules/home/views/profile_view.dart';
 
+import '../modules/forgetPassword/bindings/forget_password_binding.dart';
+import '../modules/forgetPassword/views/forget_password_view.dart';
 import '../modules/home/bindings/home_binding.dart';
+import '../modules/home/views/booking_view.dart';
 import '../modules/home/views/catalog_view.dart';
+import '../modules/home/views/home_view.dart';
+import '../modules/home/views/profile_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/signup/bindings/signup_binding.dart';
@@ -54,6 +56,11 @@ class AppPages {
       name: _Paths.PROFILE,
       page: () => const ProfileView(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.FORGET_PASSWORD,
+      page: () => const ForgetPasswordView(),
+      binding: ForgetPasswordBinding(),
     ),
   ];
 }
