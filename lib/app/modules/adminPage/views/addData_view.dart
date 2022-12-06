@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dropdown_search/dropdown_search.dart';
 import '../controllers/adminPage_controller.dart';
+import 'package:dropdown_plus/dropdown_plus.dart';
 
 class addDataView extends GetView<adminPageController> {
   const addDataView({Key? key}) : super(key: key);
@@ -71,37 +71,65 @@ class addDataView extends GetView<adminPageController> {
                 ),
               ),
               SizedBox(height: 20),
-              DropdownSearch<String>(
-                popupProps: PopupProps.menu(
-                  showSelectedItems: true,
-                ),
-                clearButtonProps: ClearButtonProps(isVisible: true),
-                items: ["Automatic", "Manual"],
-                dropdownDecoratorProps: DropDownDecoratorProps(
-                  dropdownSearchDecoration: InputDecoration(
-                    label: Text("Jenis Mobil",
-                      style: TextStyle(
-                          color: Color(0xFFEF233C),
-                          fontWeight: FontWeight.bold
-                      ),),
-                    hintText: "Pilih jenis mobil",
-                    hintStyle: TextStyle(fontSize: 14),
-                    floatingLabelBehavior: FloatingLabelBehavior.always,
-                    contentPadding:
-                    EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(28),
-                      borderSide: BorderSide(color: Color(0xFFEF233C)),
-                      gapPadding: 10,
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(28),
-                      borderSide: BorderSide(color: Color(0xFFEF233C)),
-                      gapPadding: 10,
-                    ),
+              TextField(
+                controller: controller.hargaC,
+                autocorrect: false,
+                keyboardType: TextInputType.number,
+                cursorColor: Colors.black26,
+                decoration: InputDecoration(
+                  label: Text("Harga perhari",
+                    style: TextStyle(
+                        color: Color(0xFFEF233C),
+                        fontWeight: FontWeight.bold
+                    ),),
+                  hintText: "Harga perhari",
+                  hintStyle: TextStyle(fontSize: 14),
+                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                  contentPadding:
+                  EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(28),
+                    borderSide: BorderSide(color: Color(0xFFEF233C)),
+                    gapPadding: 10,
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(28),
+                    borderSide: BorderSide(color: Color(0xFFEF233C)),
+                    gapPadding: 10,
                   ),
                 ),
-                onChanged: print,
+              ),
+              SizedBox(height: 20),
+              TextDropdownFormField(
+                controller: controller.jenisC,
+                dropdownHeight: 120,
+                options: ["Automatic", "Manual"],
+                decoration: InputDecoration(
+                  label: Text("Jenis Mobil",
+                    style: TextStyle(
+                        color: Color(0xFFEF233C),
+                        fontWeight: FontWeight.bold
+                    ),),
+                  hintText: "Pilih jenis mobil",
+                  hintStyle: TextStyle(fontSize: 14),
+                  suffixIcon: Icon(
+                      Icons.arrow_drop_down,
+                      color: Color(0xFFEF233C)
+                  ),
+                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                  contentPadding:
+                  EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(28),
+                    borderSide: BorderSide(color: Color(0xFFEF233C)),
+                    gapPadding: 10,
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(28),
+                    borderSide: BorderSide(color: Color(0xFFEF233C)),
+                    gapPadding: 10,
+                  ),
+                ),
               ),
               SizedBox(height: 20),
               Container(

@@ -58,8 +58,8 @@ class SignupController extends GetxController {
             File file = File(image!.path);
             String ext = image!.name.split(".").last;
 
-            await storage.ref('$nama/ktp.$ext').putFile(file);
-            String urlKTP = await storage.ref('$nama/ktp.$ext').getDownloadURL();
+            await storage.ref('ktp/$nama/ktp.$ext').putFile(file);
+            String urlKTP = await storage.ref('ktp/$nama/ktp.$ext').getDownloadURL();
 
             firestore.collection("user").doc(uid).set({
               "nama": nameC.text,

@@ -15,16 +15,15 @@ class LoginController extends GetxController {
 
   login() async {
     if (emailC.text.isNotEmpty && passC.text.isNotEmpty) {
-      if (emailC.text == "admin@admin.com" && passC.text == "adminrentcar") {
-        Get.offAllNamed(Routes.ADMIN_PAGE);
-      }else{
         try{
           UserCredential userCredential = await auth.signInWithEmailAndPassword(
             email: emailC.text,
             password: passC.text,
           );
           if (userCredential.user != null) {
-            if (userCredential.user!.emailVerified == true) {
+            if (userCredential.user?.uid == "O1UosUvLvQPP7xdqq9t488YrUcM2") {
+              Get.offAllNamed(Routes.ADMIN_PAGE);
+            } else if (userCredential.user!.emailVerified == true) {
               Get.offAllNamed(Routes.HOME);
             } else {
               Get.defaultDialog(
@@ -48,7 +47,6 @@ class LoginController extends GetxController {
         } catch (e) {
           Get.snackbar("Login Error", "Tidak dapat login");
         }
-      }
     } else {
       Get.snackbar("Login Error", "Silahkan masukkan email dan password");
     }
