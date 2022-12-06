@@ -222,7 +222,7 @@ class SignupView extends GetView<SignupController> {
                     if(c.image != null){
                       return Text("KTP telah dipilih");
                     }else{
-                      return Text("KTP belum dipilih");
+                      return Text("Silahkan pilih KTP");
                     };
                   }
                 )

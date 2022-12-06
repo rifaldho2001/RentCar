@@ -15,7 +15,7 @@ class addDataView extends GetView<adminPageController> {
             padding: EdgeInsets.only(right: 40, left: 40, top: 50),
             children: [
               TextField(
-                // controller: controller.nameC,
+                controller: controller.mobilC,
                 autocorrect: false,
                 cursorColor: Colors.black26,
                 decoration: InputDecoration(
@@ -43,7 +43,7 @@ class addDataView extends GetView<adminPageController> {
               ),
               SizedBox(height: 20),
               TextField(
-                // controller: controller.emailC,
+                controller: controller.penumpangC,
                 autocorrect: false,
                 keyboardType: TextInputType.number,
                 cursorColor: Colors.black26,
@@ -109,7 +109,7 @@ class addDataView extends GetView<adminPageController> {
                 height: 60,
                 child: ElevatedButton(
                   onPressed: () {
-                    // controller.pickKTP();
+                    controller.pickMobil();
                   },
                   child: Text("Import Foto Mobil",
                       style: TextStyle(
@@ -126,18 +126,18 @@ class addDataView extends GetView<adminPageController> {
                 ),
               ),
               SizedBox(height: 20),
-              // Container(
-              //     alignment: Alignment.center,
-              //     child: GetBuilder<adminPageController>(
-              //         builder: (c) {
-              //           if(c.image != null){
-              //             return Text("KTP telah dipilih");
-              //           }else{
-              //             return Text("KTP belum dipilih");
-              //           };
-              //         }
-              //     )
-              // ),
+              Container(
+                  alignment: Alignment.center,
+                  child: GetBuilder<adminPageController>(
+                      builder: (c) {
+                        if(c.image != null){
+                          return Text("Foto mobil telah dipilih");
+                        }else{
+                          return Text("Silahkan pilih foto mobil");
+                        };
+                      }
+                  )
+              ),
               SizedBox(height: 20),
               Container(
                 width: Get.width,

@@ -54,11 +54,12 @@ class SignupController extends GetxController {
 
           if(userCredential.user != null) {
             String uid = userCredential.user!.uid;
+            String nama = nameC.text;
             File file = File(image!.path);
             String ext = image!.name.split(".").last;
 
-            await storage.ref('$uid/profile.$ext').putFile(file);
-            String urlKTP = await storage.ref('$uid/profile.$ext').getDownloadURL();
+            await storage.ref('$nama/ktp.$ext').putFile(file);
+            String urlKTP = await storage.ref('$nama/ktp.$ext').getDownloadURL();
 
             firestore.collection("user").doc(uid).set({
               "nama": nameC.text,
@@ -66,6 +67,7 @@ class SignupController extends GetxController {
               "no_hp": phoneC.text,
               "ktp": urlKTP,
               "uid":  uid,
+
             });
           }
 
