@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 
@@ -70,7 +71,10 @@ class ProfileView extends GetView<HomeController> {
                 ),
                 SizedBox(height: 8,),
                 ListTile(
-                  onTap: () => controller.logout(),
+                  onTap: () async {
+                    await FirebaseAuth.instance.signOut();
+                    Get.offAllNamed(Routes.LOGIN);
+                  },
                   leading: Icon(Icons.logout),
                   iconColor: Color(0xFFEF233C),
                   title: Text("Logout"),
@@ -89,21 +93,6 @@ class ProfileView extends GetView<HomeController> {
           }
         },
       ),
-      // body: Container(
-      //   width: double.infinity,
-      //   height: size.height,
-      //   child: Center(
-      //     child: Column(
-      //       mainAxisAlignment: MainAxisAlignment.center,
-      //       children: const [
-      //         Text(
-      //           "Profile Page",
-      //           style: TextStyle(fontSize: 24),
-      //         )
-      //       ],
-      //     ),
-      //   ),
-      // ),
     );
   }
 }
