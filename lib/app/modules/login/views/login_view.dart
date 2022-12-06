@@ -115,7 +115,9 @@ class LoginView extends GetView<LoginController> {
             Container(
               alignment: Alignment.centerRight,
               child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    controller.forgetPassword();
+                  },
                   child: Text("Forgot Password?",
                       style: TextStyle(
                         color: Color(0xFFEF233C),

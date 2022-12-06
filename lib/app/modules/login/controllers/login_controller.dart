@@ -16,7 +16,7 @@ class LoginController extends GetxController {
   login() async {
     if (emailC.text.isNotEmpty && passC.text.isNotEmpty) {
       if (emailC.text == "admin@admin.com" && passC.text == "adminrentcar") {
-        Get.offAllNamed(Routes.HOME);
+        Get.offAllNamed(Routes.ADMIN_PAGE);
       }else{
         try{
           UserCredential userCredential = await auth.signInWithEmailAndPassword(
@@ -52,5 +52,9 @@ class LoginController extends GetxController {
     } else {
       Get.snackbar("Login Error", "Silahkan masukkan email dan password");
     }
+  }
+
+  void forgetPassword() {
+    Get.offAllNamed(Routes.FORGET_PASSWORD);
   }
 }

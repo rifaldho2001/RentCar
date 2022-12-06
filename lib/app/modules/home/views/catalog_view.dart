@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:get/get.dart';
 import 'package:rentcarapp/app/modules/home/datadummy/model.dart';
 import 'package:rentcarapp/app/modules/home/datadummy/repository.dart';
-
-import '../controllers/home_controller.dart';
 
 class CatalogView extends StatefulWidget {
   const CatalogView({Key? key,}) : super(key: key);

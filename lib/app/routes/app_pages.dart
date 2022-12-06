@@ -1,5 +1,10 @@
 import 'package:get/get.dart';
+import 'package:rentcarapp/app/modules/adminPage/views/confirmOrder_view.dart';
 
+import '../modules/adminPage/bindings/adminPage_binding.dart';
+import '../modules/adminPage/views/addData_view.dart';
+import '../modules/adminPage/views/adminPage_view.dart';
+import '../modules/adminPage/views/logout_view.dart';
 import '../modules/forgetPassword/bindings/forget_password_binding.dart';
 import '../modules/forgetPassword/views/forget_password_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -19,7 +24,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.LOGIN;
+  static const INITIAL = Routes.ADMIN_PAGE;
 
   static final routes = [
     GetPage(
@@ -61,6 +66,26 @@ class AppPages {
       name: _Paths.FORGET_PASSWORD,
       page: () => const ForgetPasswordView(),
       binding: ForgetPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_PAGE,
+      page: () => adminPageView(),
+      binding: adminPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADD_DATA,
+      page: () => const addDataView(),
+      binding: adminPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.CONFIRM_ORDER,
+      page: () => const confirmOrderView(),
+      binding: adminPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.LOGOUT,
+      page: () => const LogoutView(),
+      binding: adminPageBinding(),
     ),
   ];
 }

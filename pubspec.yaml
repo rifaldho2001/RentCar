@@ -17,6 +17,7 @@ dependencies:
   cloud_firestore: ^4.1.0
   flutter: 
     sdk: flutter
+  dropdown_search: ^5.0.5
 
 dev_dependencies: 
   flutter_lints: ^2.0.1

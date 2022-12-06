@@ -11,6 +11,10 @@ abstract class Routes {
   static const PROFILE = _Paths.PROFILE;
   static const BOTNAVBAR = _Paths.HOME;
   static const FORGET_PASSWORD = _Paths.FORGET_PASSWORD;
+  static const ADMIN_PAGE = _Paths.ADMIN_PAGE;
+  static const ADD_DATA = _Paths.ADD_DATA;
+  static const CONFIRM_ORDER = _Paths.CONFIRM_ORDER;
+  static const LOGOUT = _Paths.LOGOUT;
 }
 
 abstract class _Paths {
@@ -23,4 +27,8 @@ abstract class _Paths {
   static const BOOKING = '/booking';
   static const PROFILE = '/profile';
   static const FORGET_PASSWORD = '/forget-password';
+  static const ADMIN_PAGE = '/admin-page';
+  static const ADD_DATA = '/add-data';
+  static const CONFIRM_ORDER = '/confirm-order';
+  static const LOGOUT = '/logout';
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BookingView extends StatelessWidget {
-  const BookingView({Key? key}) : super(key: key);
+class LogoutView extends StatelessWidget {
+  const LogoutView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class BookingView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Text(
-                "Booking Page",
+                "Log Out Page",
                 style: TextStyle(fontSize: 24),
               )
             ],
