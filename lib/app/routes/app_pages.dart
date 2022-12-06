@@ -1,10 +1,12 @@
 import 'package:get/get.dart';
-import 'package:rentcarapp/app/modules/adminPage/views/confirmOrder_view.dart';
 
 import '../modules/adminPage/bindings/adminPage_binding.dart';
 import '../modules/adminPage/views/addData_view.dart';
 import '../modules/adminPage/views/adminPage_view.dart';
+import '../modules/adminPage/views/confirmOrder_view.dart';
 import '../modules/adminPage/views/logout_view.dart';
+import '../modules/changePassword/bindings/change_password_binding.dart';
+import '../modules/changePassword/views/change_password_view.dart';
 import '../modules/forgetPassword/bindings/forget_password_binding.dart';
 import '../modules/forgetPassword/views/forget_password_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -86,6 +88,11 @@ class AppPages {
       name: _Paths.LOGOUT,
       page: () => const LogoutView(),
       binding: adminPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHANGE_PASSWORD,
+      page: () => const ChangePasswordView(),
+      binding: ChangePasswordBinding(),
     ),
   ];
 }

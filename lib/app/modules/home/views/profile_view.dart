@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:rentcarapp/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -17,7 +18,7 @@ class ProfileView extends GetView<HomeController> {
         stream: controller.streamUser(),
         builder: (context, snap) {
           if (snap.connectionState == ConnectionState.waiting) {
-            Center(child: CircularProgressIndicator(),);
+            return Center(child: CircularProgressIndicator(),);
           }
           if(snap.hasData) {
             Map<String, dynamic> user = snap.data!.data()!;
@@ -57,19 +58,7 @@ class ProfileView extends GetView<HomeController> {
                 ),
                 SizedBox(height: 30,),
                 ListTile(
-                  onTap: () {},
-                  leading: Icon(Icons.person),
-                  iconColor: Color(0xFFEF233C),
-                  title: Text("Update profile",),
-                  trailing: Icon(Icons.arrow_forward_ios, size: 20,),
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(color: Color(0xFFEF233C)),
-                    borderRadius: BorderRadius.circular(28)
-                  ),
-                ),
-                SizedBox(height: 8,),
-                ListTile(
-                  onTap: () {},
+                  onTap: () => Get.toNamed(Routes.CHANGE_PASSWORD),
                   leading: Icon(Icons.vpn_key),
                   iconColor: Color(0xFFEF233C),
                   title: Text("Ubah password"),

@@ -15,6 +15,7 @@ abstract class Routes {
   static const ADD_DATA = _Paths.ADD_DATA;
   static const CONFIRM_ORDER = _Paths.CONFIRM_ORDER;
   static const LOGOUT = _Paths.LOGOUT;
+  static const CHANGE_PASSWORD = _Paths.CHANGE_PASSWORD;
 }
 
 abstract class _Paths {
@@ -31,4 +32,5 @@ abstract class _Paths {
   static const ADD_DATA = '/add-data';
   static const CONFIRM_ORDER = '/confirm-order';
   static const LOGOUT = '/logout';
+  static const CHANGE_PASSWORD = '/change-password';
 }
