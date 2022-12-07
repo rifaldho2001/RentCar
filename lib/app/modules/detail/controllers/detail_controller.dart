@@ -1,23 +1,19 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 class DetailController extends GetxController {
-  //TODO: Implement DetailController
+  FirebaseAuth auth = FirebaseAuth.instance;
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+    Future<QuerySnapshot<Object?>> getMobil() async{
+      CollectionReference mobil = firestore.collection("mobil");
+
+      return mobil.get();
+    }
+
+    Stream<QuerySnapshot<Object?>> streamMobil() {
+      CollectionReference mobil = firestore.collection("mobil");
+      return mobil.snapshots();
+    }
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
-}

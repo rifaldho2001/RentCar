@@ -23,7 +23,7 @@ class ChangePasswordController extends GetxController {
 
           Get.back();
 
-          Get.snackbar("Berhasil Mengubah Password", "Kembali ke menu login...");
+          Get.snackbar("Berhasil!", "Password Anda telah diganti.");
 
         } on FirebaseAuthException catch (e) {
           if(e.code == "wrong-password") {

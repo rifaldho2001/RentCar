@@ -21,7 +21,15 @@ class LogoutView extends GetView<adminPageController> {
                   onPressed: () {
                     controller.logout();
                   },
-                  child: Text("LogOut")),
+                  child: Text("LogOut"),
+                    style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFFEF233C),
+                    padding: EdgeInsets.symmetric(vertical: 15),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(28),
+                    ),
+                    )
+              )
             ],
           ),
         ),
