@@ -29,6 +29,7 @@ void main() async{
             ),
           );
         }
+        print(snapshot.data);
         return GetMaterialApp(
           builder: (context, child) => ResponsiveWrapper.builder(
               BouncingScrollWrapper.builder(context, child!),
@@ -45,7 +46,8 @@ void main() async{
               background: Container(color: const Color(0xFFF5F5F5))),
           debugShowCheckedModeBanner: false,
           title: "Application",
-          initialRoute: snapshot.data != null ? Routes.HOME : AppPages.INITIAL,
+          initialRoute:
+          snapshot.data != null ? Routes.ADMIN_PAGE : Routes.LOGIN,
           getPages: AppPages.routes,
           theme: ThemeData(
             fontFamily:'Poppins',

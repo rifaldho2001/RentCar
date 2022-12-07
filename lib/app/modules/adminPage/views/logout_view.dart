@@ -1,10 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get/get_state_manager/src/simple/get_view.dart';
 
-import '../../../routes/app_pages.dart';
+import '../controllers/adminPage_controller.dart';
 
-class LogoutView extends StatelessWidget {
+class LogoutView extends GetView<adminPageController> {
   const LogoutView({Key? key}) : super(key: key);
 
   @override
@@ -12,22 +11,18 @@ class LogoutView extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
+        width: double.infinity,
+        height: size.height,
         child: Center(
-          child: GestureDetector(
-            onTap: () async {
-              await FirebaseAuth.instance.signOut();
-              Get.offAllNamed(Routes.LOGIN);
-            },
-            child: ClipOval(
-              child: Container(
-                width: 130,
-                height: 130,
-                color: Color(0xFFEF233C),
-                child: Icon(Icons.logout,
-                  size: 45,
-                  color: Colors.white,),
-              ),
-            ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                  onPressed: () {
+                    controller.logout();
+                  },
+                  child: Text("LogOut")),
+            ],
           ),
         ),
       ),

@@ -52,25 +52,21 @@ class SignupController extends GetxController {
 
           await userCredential.user!.sendEmailVerification();
 
-          if(userCredential.user != null) {
-            String uid = userCredential.user!.uid;
-            String nama = nameC.text;
-            File file = File(image!.path);
-            String ext = image!.name.split(".").last;
+          String uid = userCredential.user!.uid;
+          String nama = nameC.text;
+          File file = File(image!.path);
+          String ext = image!.name.split(".").last;
 
-            await storage.ref('ktp/$nama/ktp.$ext').putFile(file);
-            String urlKTP = await storage.ref('ktp/$nama/ktp.$ext').getDownloadURL();
+          await storage.ref('ktp/$nama/ktp.$ext').putFile(file);
+          String urlKTP = await storage.ref('ktp/$nama/ktp.$ext').getDownloadURL();
 
-            firestore.collection("user").doc(uid).set({
-              "nama": nameC.text,
-              "email": emailC.text,
-              "no_hp": phoneC.text,
-              "ktp": urlKTP,
-              "uid":  uid,
-
-            });
-          }
-
+          firestore.collection("user").doc(uid).set({
+            "nama": nameC.text,
+            "email": emailC.text,
+            "no_hp": phoneC.text,
+            "ktp": urlKTP,
+            "uid":  uid,
+          });
         } on FirebaseAuthException catch (e) {
           if (e.code == 'weak-password') {
             Get.snackbar("Terjadi Kesalahan", "Password yang digunakan terlalu singkat");
