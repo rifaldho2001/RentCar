@@ -112,6 +112,13 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                         }
                       },
                       child: Text((controller.isLoading.isFalse) ? "UBAH PASSWORD" : "LOADING..."),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFFEF233C),
+                      padding: EdgeInsets.symmetric(vertical: 15),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(28),
+                      ),
+                    ),
                   ),
           )
         ]
