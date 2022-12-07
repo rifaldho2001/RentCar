@@ -47,7 +47,7 @@ void main() async{
           debugShowCheckedModeBanner: false,
           title: "Application",
           initialRoute:
-          snapshot.data != null ? Routes.ADMIN_PAGE : Routes.LOGIN,
+          snapshot.data != null ? Routes.HOME : Routes.LOGIN,
           getPages: AppPages.routes,
           theme: ThemeData(
             fontFamily:'Poppins',

@@ -4,8 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
-import '../../../routes/app_pages.dart';
-import '../../login/views/login_view.dart';
+import 'package:rentcarapp/app/routes/app_pages.dart';
 
 class ForgetPasswordController extends GetxController {
   RxBool isLoading = false.obs;
@@ -26,8 +25,9 @@ class ForgetPasswordController extends GetxController {
       isLoading.value = false;
     }
   }
+
   void backtoLogin() {
     Get.offAllNamed(Routes.LOGIN);
   }
 
-} 
+}

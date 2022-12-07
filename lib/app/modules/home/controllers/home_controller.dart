@@ -19,6 +19,23 @@ class HomeController extends GetxController {
     yield* firestore.collection("user").doc(uid).snapshots();
   }
 
+  // Catalog Page
+  Future<QuerySnapshot<Object?>> getMobil() async{
+    CollectionReference mobil = firestore.collection("mobil");
+
+    return mobil.get();
+  }
+
+  Stream<QuerySnapshot<Object?>> streamMobil() {
+    CollectionReference mobil = firestore.collection("mobil");
+    return mobil.snapshots();
+  }
+
+  void detail() {
+    Get.offAllNamed(Routes.DETAIL);
+  }
+
+  //Logout
   void logout() async {
     await FirebaseAuth.instance.signOut();
     Get.offAllNamed(Routes.LOGIN);

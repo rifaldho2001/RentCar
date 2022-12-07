@@ -7,6 +7,8 @@ import '../modules/adminPage/views/confirmOrder_view.dart';
 import '../modules/adminPage/views/logout_view.dart';
 import '../modules/changePassword/bindings/change_password_binding.dart';
 import '../modules/changePassword/views/change_password_view.dart';
+import '../modules/detail/bindings/detail_binding.dart';
+import '../modules/detail/views/detail_view.dart';
 import '../modules/forgetPassword/bindings/forget_password_binding.dart';
 import '../modules/forgetPassword/views/forget_password_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -26,7 +28,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.LOGIN;
+  static const INITIAL = Routes.HOME;
 
   static final routes = [
     GetPage(
@@ -93,6 +95,11 @@ class AppPages {
       name: _Paths.CHANGE_PASSWORD,
       page: () => const ChangePasswordView(),
       binding: ChangePasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAIL,
+      page: () => const DetailView(),
+      binding: DetailBinding(),
     ),
   ];
 }
