@@ -75,7 +75,7 @@ class ForgetPasswordView extends GetView<ForgetPasswordController> {
               width: Get.width,
               height: 60,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {controller.sendEmail();},
                 child: Text("SEND EMAIL", style: TextStyle(fontSize: 16)),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFFEF233C),
