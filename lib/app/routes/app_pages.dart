@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import '../modules/adminPage/bindings/adminPage_binding.dart';
 import '../modules/adminPage/views/addData_view.dart';
 import '../modules/adminPage/views/adminPage_view.dart';
-import '../modules/adminPage/views/confirmOrder_view.dart';
 import '../modules/adminPage/views/logout_view.dart';
 import '../modules/changePassword/bindings/change_password_binding.dart';
 import '../modules/changePassword/views/change_password_view.dart';
@@ -79,11 +78,6 @@ class AppPages {
     GetPage(
       name: _Paths.ADD_DATA,
       page: () => const addDataView(),
-      binding: adminPageBinding(),
-    ),
-    GetPage(
-      name: _Paths.CONFIRM_ORDER,
-      page: () => const confirmOrderView(),
       binding: adminPageBinding(),
     ),
     GetPage(

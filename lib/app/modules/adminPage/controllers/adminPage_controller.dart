@@ -42,6 +42,7 @@ class adminPageController extends GetxController {
     update();
   }
 
+  // Add Data
   void uploadData() async {
     if (mobilC.text.isNotEmpty && penumpangC.text.isNotEmpty && hargaC.text.isNotEmpty && jenisC?.value != null) {
       isLoading.value = true;
@@ -54,7 +55,7 @@ class adminPageController extends GetxController {
         String urlMOBIL = await storage.ref('mobil/$mobil.$ext').getDownloadURL();
 
         firestore.collection("mobil").doc(mobil).set({
-          "mobil": mobilC.text,
+          "nama": mobilC.text,
           "kapasitas" : penumpangC.text,
           "harga" : hargaC.text,
           "jenis" : jenisC!.value,

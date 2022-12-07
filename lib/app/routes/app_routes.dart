@@ -13,7 +13,6 @@ abstract class Routes {
   static const FORGET_PASSWORD = _Paths.FORGET_PASSWORD;
   static const ADMIN_PAGE = _Paths.ADMIN_PAGE;
   static const ADD_DATA = _Paths.ADD_DATA;
-  static const CONFIRM_ORDER = _Paths.CONFIRM_ORDER;
   static const LOGOUT = _Paths.LOGOUT;
   static const CHANGE_PASSWORD = _Paths.CHANGE_PASSWORD;
   static const DETAIL = _Paths.DETAIL;
@@ -31,7 +30,6 @@ abstract class _Paths {
   static const FORGET_PASSWORD = '/forget-password';
   static const ADMIN_PAGE = '/admin-page';
   static const ADD_DATA = '/add-data';
-  static const CONFIRM_ORDER = '/confirm-order';
   static const LOGOUT = '/logout';
   static const CHANGE_PASSWORD = '/change-password';
   static const DETAIL = '/detail';

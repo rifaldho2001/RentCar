@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:rentcarapp/app/modules/adminPage/views/addData_view.dart';
-import 'package:rentcarapp/app/modules/adminPage/views/confirmOrder_view.dart';
 import 'package:rentcarapp/app/modules/adminPage/views/logout_view.dart';
 
 import '../controllers/adminPage_controller.dart';
@@ -16,7 +15,6 @@ class adminPageView extends StatelessWidget {
 
   final screen = [
     addDataView(),
-    confirmOrderView(),
     LogoutView(),
   ];
 
@@ -50,10 +48,6 @@ class adminPageView extends StatelessWidget {
                 _bottomNavigationBarItem(
                   label: "Add Data",
                   icon: Icons.file_upload_rounded,
-                ),
-                _bottomNavigationBarItem(
-                  label: "Order",
-                  icon: Icons.note,
                 ),
                 _bottomNavigationBarItem(
                   label: "Log Out",

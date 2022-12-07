@@ -13,7 +13,6 @@ class ProfileView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: StreamBuilder <DocumentSnapshot<Map<String, dynamic>>>(
         stream: controller.streamUser(),
