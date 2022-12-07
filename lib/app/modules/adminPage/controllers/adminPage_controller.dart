@@ -1,10 +1,13 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart' as s;
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:dropdown_plus/dropdown_plus.dart';
+
+import '../../../routes/app_pages.dart';
 
 class adminPageController extends GetxController {
   var tabIndex = 0.obs;
@@ -54,7 +57,7 @@ class adminPageController extends GetxController {
           "mobil": mobilC.text,
           "kapasitas" : penumpangC.text,
           "harga" : hargaC.text,
-          "jenis" : jenisC?.value,
+          "jenis" : jenisC!.value,
           "foto": urlMOBIL,
         });
         print("Data telah diupload");
@@ -67,5 +70,12 @@ class adminPageController extends GetxController {
     }else{
       Get.snackbar("Upload Error", "Silahkan isi semua form");
     }
+  }
+
+  void logout() async {
+    await FirebaseAuth.instance.signOut();
+    Get.offAllNamed(Routes.LOGIN);
+
+    print(FirebaseAuth.instance.currentUser);
   }
 }
