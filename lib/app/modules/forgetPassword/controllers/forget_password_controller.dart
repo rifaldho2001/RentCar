@@ -1,23 +1,27 @@
+import 'dart:ffi';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart';
 
 class ForgetPasswordController extends GetxController {
-  //TODO: Implement ForgetPasswordController
+  RxBool isLoading = false.obs;
+  TextEditingController emailC = TextEditingController();
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  FirebaseAuth auth = FirebaseAuth.instance;
+
+  void sendEmail() async {
+    try {
+      isLoading.value = true;
+      await auth.sendPasswordResetEmail(email: emailC.text);
+      Get.snackbar("Success", "Email sent");
+      Get.back();
+    } on FirebaseAuthException catch (e) {
+      Get.snackbar("Error", e.message.toString());
+    } finally {
+      isLoading.value = false;
+    }
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
-}
+} 
